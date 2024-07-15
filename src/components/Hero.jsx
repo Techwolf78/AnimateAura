@@ -175,7 +175,7 @@ const Hero = () => {
         </button>
       </section>
       <hr />
-      <section className="py-20 bg-gradient-to-r from-sky-300 to-purple-500 text-white text-center">
+      <section className="py-20 bg-gradient-to-r from-sky-200 to-purple-600 text-white text-center">
         <motion.h3
           className="text-4xl font-bold mb-4"
           initial={{ opacity: 0, y: -50 }}
