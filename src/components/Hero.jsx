@@ -2,8 +2,100 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+import "./css/Hero.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Hero = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  const clients = [
+    {
+      id: 1,
+      name: "Ankura",
+      logo: "images/sony.jpg",
+    },
+    {
+      id: 2,
+      name: "Sunshine",
+      logo: "images/disney.jpg",
+    },
+    {
+      id: 3,
+      name: "Nimes",
+      logo: "images/dreamwork.jpg",
+    },
+    {
+      id: 4,
+      name: "Olive",
+      logo: "images/pixar.jpg",
+    },
+    {
+      id: 8,
+      name: "Olive",
+      logo: "images/blue-sky.jpg",
+    },
+
+    {
+      id: 6,
+      name: "Olive",
+      logo: "images/nick.jpg",
+    },
+    {
+      id: 7,
+      name: "Olive",
+      logo: "images/cn.jpg",
+    },
+
+    {
+      id: 9,
+      name: "Olive",
+      logo: "images/crest.jpg",
+    },
+    {
+      id: 5,
+      name: "Olive",
+      logo: "images/illumination.jpg",
+    },
+  ];
+
   const navigate = useNavigate();
 
   const headlineProps = useSpring({
@@ -29,6 +121,11 @@ const Hero = () => {
     "https://lh7-us.googleusercontent.com/FT6NYzYZ4EvzQIsTcT11gncmgITpDg2GSVhG3I-svR2G8gDv2Jrvi4Sg4DzagTQxbIY8lHkt7O_SLO-Aa9Pz1G7CTAQ3MpbzxITpV9PwI3LsMA5Q2tZj0UW75OMaVStuE0tytxCD3uprL2iL4StjLzE",
     "https://www.sliderrevolution.com/wp-content/uploads/2021/09/sliderrevolution-blog-image-1.gif",
   ];
+
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
   return (
     <div>
       <section className="flex flex-col items-center justify-center text-center py-20 px-4 min-h-screen relative overflow-hidden bg-gradient-to-r from-purple-900 to-blue-900">
@@ -74,7 +171,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="py-20  items-center justify-center text-center py-20 px-4 relative overflow-hidden bg-gradient-to-r from-pink-200 to-blue-500">
+      <section className="py-20  items-center justify-center text-center  px-4 relative overflow-hidden bg-gradient-to-r from-pink-200 to-blue-500">
         <animated.h3
           className="text-4xl font-bold mb-4 relative"
           style={headlineProps}
@@ -110,43 +207,147 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="items-center justify-center text-center py-10 px-4 relative overflow-hidden bg-gradient-to-r from-purple-100 to-blue-500">
-        <animated.h3
-          style={fadeIn}
-          className="text-5xl font-extrabold mb-6 text-white"
-        >
-          What Our Clients Say
-        </animated.h3>
-        <div className="flex flex-wrap justify-center">
-          {[
-            {
-              name: "Mark Robert",
-              message: "Their service transformed our business!",
-            },
-            {
-              name: "Julie Lee",
-              message: "Incredible support and dedication!",
-            },
-            { name: "Peter Sien", message: "A game-changer for us!" },
-          ].map((client, index) => (
-            <motion.div
-              key={index}
-              className="p-8 flex flex-col items-center justify-center text-center relative overflow-hidden bg-gradient-to-r from-purple-400 to-violet-500 rounded-lg m-4 shadow-lg transition-transform duration-300 transform hover:scale-105"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <motion.p
-                className="text-lg text-white mb-2"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.3 }}
+      <section
+        className="bg-gradient-to-r from-purple-300 to-yellow-200 py-20"
+        ref={ref}
+      >
+        <div className="container mx-auto px-4">
+          <h2 className="text-5xl  text-white mb-8">
+            Relationships <b>Based On Trust</b>
+          </h2>
+          <p className="text-2xl text-white-200 mb-12">
+            Our Engagement with the IT Industry
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <span className="text-5xl font-bold text-blue-500">
+                {inView && <CountUp end={25} duration={2.5} />}
+              </span>
+              <h3 className="text-2xl font-bold text-white mt-4">
+                Years of Experience
+              </h3>
+              <p className="text-gray-800 mt-2">
+                We have been providing top-notch services for over 25 years.
+              </p>
+            </div>
+            <div className="text-center">
+              <span className="text-5xl font-bold text-blue-500">
+                {inView && <CountUp end={500} duration={3} />}
+              </span>
+              <h3 className="text-2xl font-bold text-white mt-4">
+                Satisfied Clients
+              </h3>
+              <p className="text-gray-800 mt-2">
+                We have served over 500 satisfied clients worldwide.
+              </p>
+            </div>
+            <div className="text-center">
+              <span className="text-5xl font-bold text-blue-500">
+                {inView && <CountUp end={99} duration={2} suffix="%" />}
+              </span>
+              <h3 className="text-2xl font-bold text-white mt-4">
+                Customer Satisfaction
+              </h3>
+              <p className="text-gray-800 mt-2">
+                Our clients are highly satisfied with our services.
+              </p>
+            </div>
+            <div className="text-center">
+              <span className="text-5xl font-bold text-blue-500">
+                {inView && <CountUp end={1000} duration={4} />}
+              </span>
+              <h3 className="text-2xl font-bold text-white mt-4">
+                Projects Delivered
+              </h3>
+              <p className="text-gray-800 mt-2">
+                We have successfully delivered over 1000 projects.
+              </p>
+            </div>
+            <div className="text-center">
+              <span className="text-5xl font-bold text-blue-500">
+                {inView && <CountUp end={100} duration={2.5} />}
+              </span>
+              <h3 className="text-2xl font-bold text-white mt-4">Awards Won</h3>
+              <p className="text-gray-800 mt-2">
+                We have won over 100 prestigious awards.
+              </p>
+            </div>
+            <div className="text-center">
+              <span className="text-5xl font-bold text-blue-500">
+                {inView && <CountUp end={10000} duration={5} />}
+              </span>
+              <h3 className="text-2xl font-bold text-white mt-4">
+                Hours of Support
+              </h3>
+              <p className="text-gray-800 mt-2">
+                We have provided over 10000 hours of dedicated support.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sectors-we-serve py-12 bg-gradient-to-r from-blue-200 to-violet-300 ">
+        <div className="container mx-auto ">
+          <h2 className="text-5xl  mb-4 text-black">
+            Sectors <span className="font-bold ">We Serve</span>
+          </h2>
+          <p className="text-gray-600 text-xl text-gray-800 mb-12">
+            We offer varied services and customized solutions depending on your
+            goals.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { title: "Information Technology", icon: "it.jpg" },
+              { title: "Real Estate", icon: "re.jpg" },
+              { title: "Media and Entertainment", icon: "me.jpg" },
+              { title: "Professional Services", icon: "ps.jpg" },
+              { title: "Telecommunications", icon: "tele.jpg" },
+              { title: "Finance & Banking", icon: "fb.jpg" },
+              { title: "Gaming", icon: "game.jpg" },
+              { title: "Retail and E-commerce", icon: "re.jpg" },
+            ].map((sector, index) => (
+              <div
+                key={index}
+                className="sector-card p-4 border rounded-3xl flex items-center bg-white hover:bg-dark-purple transition duration-300"
               >
-                "{client.message}"
-              </motion.p>
-              <p className="text-sm text-gray-200">- {client.name}</p>
-            </motion.div>
-          ))}
+                <img
+                  src={`images/${sector.icon}`}
+                  alt={sector.title}
+                  className="sector-icon mr-4"
+                />
+                <h3 className="text-lg font-medium text-black hover:text-gradient text-wrap">
+                  {sector.title}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-r from-sky-200 to-blue-500">
+        <div className="container mx-auto px-4">
+          <h1 className="text-5xl  mb-8 ">
+            Strengthening <b>Connections</b>
+          </h1>
+          <h3 className="text-2xl mb-8 "> Our delighted clients</h3>
+          <Slider {...settings} className="w-full">
+            {clients.map((client) => (
+              <div key={client.id} className="p-4 flex justify-center">
+                <div className="w-50 h-32 rounded overflow-hidden flex items-center justify-center bg-gray-200">
+                  {" "}
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = "https://example.com/fallback-image.png";
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
         </div>
       </section>
 

@@ -1,14 +1,19 @@
-// About.js
 import React, { useEffect } from "react";
 
 const About = () => {
   useEffect(() => {
-    const fadeInElement = document.querySelector(".fade-in");
-    fadeInElement.classList.add("fade-in");
+    const fadeInElements = document.querySelectorAll(".fade-in");
+    fadeInElements.forEach((el, index) => {
+      el.style.animationDelay = `${index * 0.1}s`; // Stagger the animation
+      el.classList.add("fade-in");
+    });
   }, []);
 
   return (
-    <section id="about" className="mt-20 p-8">
+    <section
+      id="about"
+      className="mt-10 p-8 bg-gradient-to-r from-blue-500 to-purple-500 text-white"
+    >
       <style>
         {`
           .fade-in {
@@ -59,70 +64,64 @@ const About = () => {
         `}
       </style>
       <div className="fade-in">
-        <h3 className="text-3xl font-bold">About Us</h3>
-        <p className="mt-4 max-w-2xl">
-          We are dedicated to providing the best service. Our team is composed
-          of experts in their respective fields, committed to excellence and
-          innovation.
+        <h3 className="text-4xl font-bold text-center">About Us</h3>
+        <p className="mt-2 max-w-2xl mx-auto text-center">
+          At our core, we are creators. We specialize in crafting stunning
+          websites that elevate brands and drive engagement. Our passionate team
+          combines innovative design with cutting-edge technology to deliver
+          exceptional results.
         </p>
 
-        <h4 className="text-2xl font-semibold mt-10">Our Mission</h4>
-        <p className="mt-2">
-          To empower our clients through innovative solutions and unparalleled
-          service, ensuring success in every project.
+        <h4 className="text-3xl font-semibold mt-8 text-center">Our Mission</h4>
+        <p className="mt-2 text-center">
+          To empower businesses by building unique online presences that
+          resonate with their audiences. We transform visions into reality,
+          ensuring every project we undertake reflects our commitment to
+          excellence and creativity.
         </p>
 
-        <h4 className="text-2xl font-semibold mt-10">Meet Our Team</h4>
+        <h4 className="text-3xl font-semibold mt-8 text-center">
+          Meet Our Team
+        </h4>
         <div className="about-container">
-          <div className="card">
-            <h5 className="font-bold">Mavrik Donor</h5>
-            <div className="team-member">
-              <img
-                src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80"
-                alt="Mavrik Donor"
-              />
-              <p>CEO</p>
+          {[
+            {
+              name: "Mavrik Donor",
+              role: "CEO",
+              img: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&auto=format&fit=crop&w=1480&q=80",
+              description:
+                "Mavrik is the visionary leader who drives our mission forward.",
+            },
+            {
+              name: "Shane Smith",
+              role: "CTO",
+              img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+              description:
+                "Shane oversees all technical aspects and innovations.",
+            },
+            {
+              name: "Alice Peterson",
+              role: "Marketing Head",
+              img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+              description: "Alice crafts our brand strategy and outreach.",
+            },
+            {
+              name: "Bryan Brown",
+              role: "Lead Developer",
+              img: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+              description:
+                "Bryan leads our development team with passion and expertise.",
+            },
+          ].map((member) => (
+            <div className="card fade-in" key={member.name}>
+              <h5 className="font-bold text-xl">{member.name}</h5>
+              <div className="team-member">
+                <img src={member.img} alt={member.name} />
+                <p>{member.role}</p>
+              </div>
+              <p>{member.description}</p>
             </div>
-            <p>
-              Mavrik is the visionary leader who drives our mission forward.
-            </p>
-          </div>
-
-          <div className="card">
-            <h5 className="font-bold">Shane Smith</h5>
-            <div className="team-member">
-              <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="Shane Smith"
-              />
-              <p>CTO</p>
-            </div>
-            <p>Shane oversees all technical aspects and innovations.</p>
-          </div>
-
-          <div className="card">
-            <h5 className="font-bold">Alice Peterson</h5>
-            <div className="team-member">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="Alice Peterson"
-              />
-              <p>Marketing Head</p>
-            </div>
-            <p>Alice crafts our brand strategy and outreach.</p>
-          </div>
-
-          <div className="card">
-            <h5 className="font-bold">Bryan Brown</h5>
-            <div className="team-member">
-              <img
-                src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=8"
-                alt="Bryan Brown"
-              />
-              <p>Lead Developer</p>
-            </div>
-            <p>Bryan leads our development team with passion and expertise.</p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
