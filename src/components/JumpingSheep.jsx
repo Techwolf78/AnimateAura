@@ -18,7 +18,7 @@ const JumpingSheep = () => {
       gsap.to(sheep, {
         x: getRandomPosition(0, containerBounds.width - sheepBounds.width),
         y: getRandomPosition(0, containerBounds.height - sheepBounds.height),
-        duration: 1,
+        duration: 3,
         ease: "power2.inOut",
         onComplete: bounce,
       });
