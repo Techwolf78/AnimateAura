@@ -6,7 +6,7 @@ import About from "./components/About";
 import Career from "./components/Career";
 import Services from "./components/Services";
 import "./App.css";
-import JumpingSheep from "./components/JumpingSheep.jsx"; // Import the Sheep component
+import JumpingSheep from "./components/WalkingSheep.jsx"; // Import the Sheep component
 
 function App() {
   useEffect(() => {
