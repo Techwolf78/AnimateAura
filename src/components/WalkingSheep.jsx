@@ -82,7 +82,7 @@ const WalkingSheep = () => {
       }}
     >
       <img
-        src="./src/assets/sheep.png"
+        src="./public/images/sheep.png"
         alt="Sheep"
         style={{
           width: "100%",
