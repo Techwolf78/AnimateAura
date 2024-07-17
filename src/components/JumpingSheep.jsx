@@ -41,9 +41,9 @@ const JumpingSheep = () => {
         backgroundColor: "white",
         borderRadius: "50%",
         zIndex: 9999,
-        backgroundImage: "url('./src/assets/sheep.png')", // Replace with your sheep image URL
+        backgroundImage: "url('./src/assets/sheep.png')",
         backgroundSize: "cover",
-        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)", // Optional: add a subtle shadow
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
       }}
     />
   );
