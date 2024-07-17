@@ -38,14 +38,21 @@ const JumpingSheep = () => {
         position: "absolute",
         width: "50px",
         height: "50px",
-        backgroundColor: "white",
-        borderRadius: "50%",
         zIndex: 9999,
-        backgroundImage: "url('./src/assets/sheep.png')",
-        backgroundSize: "cover",
         boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
       }}
-    />
+    >
+      <img
+        src="./src/assets/sheep.png" // Replace with the correct path to your sheep image
+        alt="Sheep"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          borderRadius: "5px",
+        }}
+      />
+    </div>
   );
 };
 
