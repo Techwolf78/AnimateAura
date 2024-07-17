@@ -5,7 +5,8 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Career from "./components/Career";
 import Services from "./components/Services";
-import "./App.css"; // Import the custom CSS file
+import "./App.css";
+import JumpingSheep from "./components/JumpingSheep.jsx"; // Import the Sheep component
 
 function App() {
   useEffect(() => {
@@ -39,6 +40,7 @@ function App() {
   return (
     <Router>
       <div className="bg-[#0f172a] min-h-screen text-white relative">
+        <JumpingSheep />
         <div className="custom-cursor"></div>
         <Header />
         <Routes>
