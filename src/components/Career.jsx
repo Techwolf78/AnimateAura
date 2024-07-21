@@ -1,4 +1,3 @@
-// Career.js
 import React from "react";
 
 const Career = () => {

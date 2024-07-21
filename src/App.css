@@ -1,11 +1,11 @@
 html {
   scroll-behavior: smooth;
 }
-/* Custom Cursor */
+
 .custom-cursor {
   width: 20px;
   height: 20px;
-  border: 2px solid #4b0082; /* Dark purple color */
+  border: 2px solid #4b0082;
   border-radius: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -15,11 +15,11 @@ html {
 }
 
 body {
-  cursor: none; /* Hide the default cursor */
+  cursor: none;
 }
 
 .custom-cursor-active {
   width: 40px;
   height: 40px;
-  border: 2px solid #ffff00; /* Yellow color for active state */
+  border: 2px solid #ffff00;
 }

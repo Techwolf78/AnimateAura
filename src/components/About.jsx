@@ -4,7 +4,7 @@ const About = () => {
   useEffect(() => {
     const fadeInElements = document.querySelectorAll(".fade-in");
     fadeInElements.forEach((el, index) => {
-      el.style.animationDelay = `${index * 0.1}s`; // Stagger the animation
+      el.style.animationDelay = `${index * 0.1}s`;
       el.classList.add("fade-in");
     });
   }, []);

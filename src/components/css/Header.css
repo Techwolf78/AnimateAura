@@ -1,0 +1,16 @@
+.clay-logo {
+  max-height: 30px;
+  max-width: 230px;
+  background: linear-gradient(145deg, #0a061b, #072a9b);
+  box-shadow: 20px 20px 60px #363232, -20px -20px 60px #1a1616;
+  border-radius: 25px;
+  color: #ff69b4;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.clay-logo:hover {
+  transform: scale(1.1);
+  box-shadow: 10px 10px 30px #2c2525, -10px -10px 30px #362727;
+}
